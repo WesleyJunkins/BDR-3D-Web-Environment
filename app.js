@@ -9,17 +9,15 @@ const createScene = async function(engine, canvas) {
     // Create basic light
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
+    // Create GUI texture first
+    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI", true, scene);
+
     // Create HUD text
     const instructionText = new BABYLON.GUI.TextBlock("instructionText");
     instructionText.text = "think about the beach";
     instructionText.color = "white";
     instructionText.fontSize = 24;
-
-    // Create GUI texture and container
-    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("UI");
-    const container = new BABYLON.GUI.Container();
-    advancedTexture.addControl(container);
-    container.addControl(instructionText);
+    advancedTexture.addControl(instructionText);
 
     // Position the text in front of the user
     instructionText.linkOffsetY = -60;
