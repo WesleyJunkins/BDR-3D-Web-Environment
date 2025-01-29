@@ -10,7 +10,7 @@ const createScene = async function(engine, canvas) {
     const light = new BABYLON.HemisphericLight("light", new BABYLON.Vector3(0, 1, 0), scene);
 
     // Create HUD text
-    const instructionText = new BABYLON.GUI.TextBlock();
+    const instructionText = new BABYLON.GUI.TextBlock("instructionText");
     instructionText.text = "think about the beach";
     instructionText.color = "white";
     instructionText.fontSize = 24;
